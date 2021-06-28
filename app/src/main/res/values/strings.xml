@@ -37,5 +37,6 @@
     <string name="shoe_description">Shoe Description</string>
     <string name="shoe_cancel">Cancel</string>
     <string name="shoe_save">SAVE</string>
+    <string name="menu_loginFragment">Back to Login</string>
 
 </resources>

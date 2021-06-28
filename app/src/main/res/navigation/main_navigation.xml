@@ -58,5 +58,21 @@
         <action
             android:id="@+id/action_shoeDetailFragment_to_shoeListFragment"
             app:destination="@id/shoeListFragment" />
+        <argument
+            android:name="ShoeName"
+            app:argType="string"
+            android:defaultValue="UdacityName"/>
+        <argument
+            android:name="ShoeCompany"
+            app:argType="string"
+            android:defaultValue="Udacity" />
+        <argument
+            android:name="ShoeSize"
+            app:argType="float"
+            android:defaultValue="11" />
+        <argument
+            android:name="ShoeDetails"
+            app:argType="string"
+            android:defaultValue="UdacityShoeDetails" />
     </fragment>
 </navigation>

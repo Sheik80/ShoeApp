@@ -26,6 +26,10 @@ class ShoeDetailFragment : Fragment() {
         binding.shoeDetailCancel.setOnClickListener { view: View ->
             view.findNavController().navigate(R.id.action_shoeDetailFragment_to_shoeListFragment)
         }
+
+        binding.shoeDetailSave.setOnClickListener { view: View ->
+            view.findNavController().navigate(R.id.action_shoeDetailFragment_to_shoeListFragment)
+        }
         // Inflate the layout for this fragment
         return binding.root
     }
