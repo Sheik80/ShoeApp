@@ -39,4 +39,6 @@
     <string name="shoe_save">SAVE</string>
     <string name="menu_loginFragment">Back to Login</string>
 
+    <string name="quote_format">\"%s\"</string>
+
 </resources>

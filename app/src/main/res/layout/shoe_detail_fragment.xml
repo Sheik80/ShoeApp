@@ -10,8 +10,8 @@
     <data>
 
         <variable
-            name="shoedetail"
-            type="com.udacity.shoestore.ui.ShoeDetailFragment" />
+            name="shoeDetailViewModel"
+            type="com.udacity.shoestore.models.ShoeDetailViewModel" />
     </data>
 
 
@@ -63,6 +63,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:hint="Enter Shoe Name"
+            android:text="@{@string/quote_format(shoeDetailViewModel.shoeName)}"
             android:inputType="textLongMessage"
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="@+id/textName"
@@ -92,6 +93,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:hint="Enter Shoe Company"
+            android:text="@{@string/quote_format(shoeDetailViewModel.shoeCompany)}"
             android:inputType="textLongMessage"
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="@+id/textCompany"
@@ -119,7 +121,8 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:hint="Enter Shoe Size"
-            android:inputType="number"
+            android:text="@{@string/quote_format(shoeDetailViewModel.shoeSize)}"
+            android:inputType="numberDecimal"
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="@+id/textCompany"
             app:layout_constraintEnd_toEndOf="parent"
@@ -150,6 +153,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:hint="Enter Description"
+            android:text="@{@string/quote_format(shoeDetailViewModel.shoeDetail)}"
             android:inputType="textLongMessage"
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
@@ -176,6 +180,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
+            android:onClick="@{() -> shoeDetailViewModel.onSaveDetail}"
             android:text="@string/shoe_save"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -185,5 +190,5 @@
             app:layout_constraintVertical_bias="0.542" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
+    <!--android:onClick="@{() -> shoeDetailViewModel.onSaveDetail}"-->
 </layout>
