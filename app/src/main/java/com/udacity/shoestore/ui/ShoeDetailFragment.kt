@@ -16,6 +16,7 @@ import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.ShoeDetailFragmentBinding
 import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.models.ShoeDetailViewModel
+import timber.log.Timber
 
 
 class ShoeDetailFragment : Fragment() {
@@ -30,8 +31,8 @@ class ShoeDetailFragment : Fragment() {
         binding = DataBindingUtil.inflate(
             inflater, R.layout.shoe_detail_fragment, container, false
         )
-        //viewModel = ViewModelProvider(this).get(ShoeDetailViewModel::class.java)
-        viewModel = ViewModelProvider(requireActivity()).get(ShoeDetailViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(ShoeDetailViewModel::class.java)
+       // viewModel = ViewModelProvider(requireActivity()).get(ShoeDetailViewModel::class.java)
         binding.shoeDetailViewModel = viewModel
         binding.lifecycleOwner = this
 
@@ -40,7 +41,7 @@ class ShoeDetailFragment : Fragment() {
             view.findNavController().navigate(R.id.action_shoeDetailFragment_to_shoeListFragment)
         }
 
-        viewModel.shoeAdd.observe(this, Observer { hasFinished ->
+       /* viewModel.shoeAdd.observe(this, Observer { hasFinished ->
 
             if (hasFinished) {
 
@@ -51,19 +52,27 @@ class ShoeDetailFragment : Fragment() {
 
         }
 
-        )
+        )*/
         binding.shoeDetailSave.setOnClickListener {
             viewModel.onSaveDetail()
+            Timber.i("ShoeDetailOnSaveCalled")
+            //if (hasFinished) {
+
+                //shoeAddFinish()
+                //viewModel.onChooseComplete()
+                findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment())
+            //}
+
         }
         // Inflate the layout for this fragment
         return binding.root
     }
 
-    private fun shoeAddFinish() {
+   /* private fun shoeAddFinish() {
         val action = ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment()
         view?.findNavController()?.navigate(action)
         Toast.makeText(this.activity, "Add Finished", Toast.LENGTH_SHORT).show()
-    }
+    }*/
 
 
 }

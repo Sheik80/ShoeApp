@@ -3,6 +3,7 @@ package com.udacity.shoestore.models
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import timber.log.Timber
 
 class ShoeDetailViewModel() : ViewModel() {
 
@@ -41,8 +42,8 @@ class ShoeDetailViewModel() : ViewModel() {
         _shoeSize.value = 11.0
         _shoeDetail.value = "UdacityDetail"//removeAllViews();
         _shoeAdd.value = true
-        _eventShoeAddFinish.value =
-            true // надо вызывать по буоолеан если тру то директи включать переход на другой фрагмент
+        _eventShoeAddFinish.value = true  // надо вызывать по булеан если true то включать переход на другой фрагмент
+
     }
 
     fun onSaveDetail() {
@@ -56,6 +57,7 @@ class ShoeDetailViewModel() : ViewModel() {
             )
         }
         shoe?.let { _shoeListDetails.value?.add(it) }
+        Timber.i("ShoeCreated")
     }
 
     fun onChooseComplete() {
