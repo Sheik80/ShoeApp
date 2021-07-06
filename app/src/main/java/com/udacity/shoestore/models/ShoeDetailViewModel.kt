@@ -22,47 +22,51 @@ class ShoeDetailViewModel() : ViewModel() {
         get() = _shoeList
 
     //private var _shoeName = MutableLiveData<String>()
-    var shoeName: MutableLiveData<String> = MutableLiveData<String>()
+    var shoeName: MutableLiveData<String> = MutableLiveData()
 
 
-    private val _shoeCompany = MutableLiveData<String>()
-    val shoeCompany: LiveData<String>
-        get() = _shoeCompany
+    //private val _shoeCompany = MutableLiveData<String>()
+    var shoeCompany: MutableLiveData<String> = MutableLiveData()
+//        get() = _shoeCompany
 
-    private val _shoeSize = MutableLiveData<Double>()
-    val shoeSize: LiveData<Double>
-        get() = _shoeSize
+    //private val _shoeSize = MutableLiveData<Double>()
+    var shoeSize: MutableLiveData<Double> = MutableLiveData()
+        //get() = _shoeSize
 
-    private val _shoeDetail = MutableLiveData<String>()
-    val shoeDetail: LiveData<String>
-        get() = _shoeDetail
+    //private val _shoeDetail = MutableLiveData<String>()
+    var shoeDetail: MutableLiveData<String> = MutableLiveData()
+        //get() = _shoeDetail
 
     init {
         shoeList.value = mutableListOf()
         shoeName.value = "UdacityShoe"
-        _shoeCompany.value = "Udacity"
-        _shoeSize.value = 11.0
-        _shoeDetail.value = "UdacityDetail"//removeAllViews();
+        shoeCompany.value = "Udacity"
+        shoeSize.value = 11.0
+        shoeDetail.value = "UdacityDetail"//removeAllViews();
         _shoeAdd.value = true
         _eventShoeAddFinish.value = true  // надо вызывать по булеан если true то включать переход на другой фрагмент
-        shoeName.observeForever(Observer {
+
+        /*shoeName.observeForever(Observer {
         Timber.i(it)
 
-    })
+        })*/
+       /* shoeList.observeForever({
+
+        })
         _shoeCompany.observeForever(Observer {
             Timber.i(it)
-        })
+        })*/
     }
 
 
     fun onSaveDetail() {
 
-        val shoe = _shoeSize.value?.let {
+        val shoe = shoeSize.value?.let {
             Shoe(
                 shoeName.value.toString(),
                 it.toDouble(),
-                _shoeCompany.value.toString(),
-                _shoeDetail.value.toString()
+                shoeCompany.value.toString(),
+                shoeDetail.value.toString()
             )
         }
         shoe?.let {

@@ -47,15 +47,17 @@ class ShoeListFragment : Fragment() {
                 shoe.description
 */
                 val lp = LinearLayout.LayoutParams(
+
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT
+
                 )
                 val shoeItemTextView: TextView =
                     TextView(requireContext()).apply {
                         layoutParams = lp
                     }
 
-                shoeItemTextView.text = "${shoe.name} ${shoe.company}"
+                shoeItemTextView.text = "${shoe.name + " "}  ${shoe.company + " "} ${shoe.size.toString()  +  " "} ${shoe.description + " "}"
                 binding.shoeListFragmentLayout.addView(shoeItemTextView)
             }
 
