@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.view.*
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.forEach
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -14,10 +12,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.ShoeListFragmentBinding
-import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.models.ShoeDetailViewModel
-import kotlinx.android.synthetic.main.shoe_detail_fragment.*
-import kotlinx.android.synthetic.main.shoe_list_fragment.*
 import timber.log.Timber
 
 
@@ -35,34 +30,36 @@ class ShoeListFragment : Fragment() {
             inflater, R.layout.shoe_list_fragment, container, false
         )
 
-        //viewModel = ViewModelProvider(requireActivity()).get(com.udacity.shoestore.models.ShoeDetailViewModel::class.java)
-        viewModel = ViewModelProvider(this).get(ShoeDetailViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity()).get(ShoeDetailViewModel::class.java)
+        //viewModel = ViewModelProvider(this).get(ShoeDetailViewModel::class.java)
         binding.shoeDetailViewModel = viewModel
         binding.lifecycleOwner = this
 
-        viewModel.shoeListDetails.observe(this.viewLifecycleOwner, Observer { shoes ->
+        viewModel.shoeList.observe(this.viewLifecycleOwner, Observer { shoes ->
             //binding.shoeListFragmentLayout.removeAllViews()
+            val shoeLayout: android.widget.LinearLayout = binding.shoeListFragmentLayout
             shoes.forEach { shoe ->
-                Timber.i("ShoeDetailViewModel")
+                Timber.i("ShoeDetailViewModel $shoe")
                 //view.shoeList.addView(shoe.name)
-                shoe.name
+               /* shoe.name
                 shoe.size
                 shoe.company
                 shoe.description
+*/
+                val lp = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+                )
+                val shoeItemTextView: TextView =
+                    TextView(requireContext()).apply {
+                        layoutParams = lp
+                    }
 
+                shoeItemTextView.text = "${shoe.name} ${shoe.company}"
+                binding.shoeListFragmentLayout.addView(shoeItemTextView)
             }
-            val shoeLayout: android.widget.LinearLayout = binding.shoeListFragmentLayout
-            val lp = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-            )
-            val shoeItemTextView: TextView =
-                TextView(requireContext()).apply {
-                    layoutParams = lp
-                }
 
-            shoeItemTextView.text = "${shoes}"
-            binding.shoeListFragmentLayout.addView(shoeItemTextView)
+
 
         })
 

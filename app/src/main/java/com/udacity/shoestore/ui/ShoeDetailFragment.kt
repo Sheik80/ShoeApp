@@ -31,8 +31,8 @@ class ShoeDetailFragment : Fragment() {
         binding = DataBindingUtil.inflate(
             inflater, R.layout.shoe_detail_fragment, container, false
         )
-        viewModel = ViewModelProvider(this).get(ShoeDetailViewModel::class.java)
-       // viewModel = ViewModelProvider(requireActivity()).get(ShoeDetailViewModel::class.java)
+       // viewModel = ViewModelProvider(this).get(ShoeDetailViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity()).get(ShoeDetailViewModel::class.java)
         binding.shoeDetailViewModel = viewModel
         binding.lifecycleOwner = this
 

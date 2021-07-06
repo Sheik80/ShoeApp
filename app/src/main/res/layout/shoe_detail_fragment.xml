@@ -8,7 +8,6 @@
     tools:context=".ui.ShoeDetailFragment">
 
     <data>
-
         <variable
             name="shoeDetailViewModel"
             type="com.udacity.shoestore.models.ShoeDetailViewModel" />
@@ -63,7 +62,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:hint="Enter Shoe Name"
-            android:text="@{@string/quote_format(shoeDetailViewModel.shoeName)}"
+            android:text="@={shoeDetailViewModel.shoeName}"
             android:inputType="textLongMessage"
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="@+id/textName"
