@@ -37,7 +37,7 @@ class ShoeListFragment : Fragment() {
 
         viewModel.shoeList.observe(this.viewLifecycleOwner, Observer { shoes ->
             //binding.shoeListFragmentLayout.removeAllViews()
-            val shoeLayout: android.widget.LinearLayout = binding.shoeListFragmentLayout
+            val shoeLayout: android.widget.LinearLayout = binding.shoeListLayout
             shoes.forEach { shoe ->
                 Timber.i("ShoeDetailViewModel $shoe")
                 //view.shoeList.addView(shoe.name)
@@ -54,11 +54,12 @@ class ShoeListFragment : Fragment() {
                 )
                 val shoeItemTextView: TextView =
                     TextView(requireContext()).apply {
+                        lp.gravity = Gravity.START
                         layoutParams = lp
                     }
 
                 shoeItemTextView.text = "${shoe.name + " "}  ${shoe.company + " "} ${shoe.size.toString()  +  " "} ${shoe.description + " "}"
-                binding.shoeListFragmentLayout.addView(shoeItemTextView)
+                binding.shoeListLayout.addView(shoeItemTextView)
             }
 
 
