@@ -1,10 +1,8 @@
 package com.udacity.shoestore.ui
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import com.udacity.shoestore.R
@@ -33,8 +31,14 @@ class LoginFragment : Fragment() {
             view.findNavController().navigate(R.id.action_loginFragment_to_welcomeFragment)
         }
         // Inflate the layout for this fragment
+        setHasOptionsMenu(false)
         return binding.root
     }
-
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.nav_menu, menu)
+        // hide the menu
+        menu.findItem(R.id.loginFragment)?.isVisible = false
+    }
 
 }

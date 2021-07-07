@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--I have been created all layouts in ConstraintLayouts in several reasons:
+1. It's showed in our lessons in Udacity
+2. Use it is more quickly and convinient to make UI,
+   and it has little more advanced to use chains between Views
+3. We have no hardcorded directives to use LinearLayout instead of
+ConstraintLayout, only in ListView we need to use LinearLayout-->
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"

@@ -1,8 +1,9 @@
 package com.udacity.shoestore.models
 
+
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
+
 import androidx.lifecycle.ViewModel
 import timber.log.Timber
 
@@ -31,11 +32,11 @@ class ShoeDetailViewModel() : ViewModel() {
 
     //private val _shoeSize = MutableLiveData<Double>()
     var shoeSize: MutableLiveData<Double> = MutableLiveData()
-        //get() = _shoeSize
+    //get() = _shoeSize
 
     //private val _shoeDetail = MutableLiveData<String>()
     var shoeDetail: MutableLiveData<String> = MutableLiveData()
-        //get() = _shoeDetail
+    //get() = _shoeDetail
 
     init {
         shoeList.value = mutableListOf()
@@ -48,14 +49,12 @@ class ShoeDetailViewModel() : ViewModel() {
 
         /*shoeName.observeForever(Observer {
         Timber.i(it)
-
         })*/
-       /* shoeList.observeForever({
-
-        })
-        _shoeCompany.observeForever(Observer {
-            Timber.i(it)
-        })*/
+        /* shoeList.observeForever({
+         })
+         _shoeCompany.observeForever(Observer {
+             Timber.i(it)
+         })*/
     }
 
 

@@ -92,7 +92,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:hint="Enter Shoe Company"
-            android:text="@{@string/quote_format(shoeDetailViewModel.shoeCompany)}"
+            android:text="@={shoeDetailViewModel.shoeCompany}"
             android:inputType="textLongMessage"
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="@+id/textCompany"
@@ -120,7 +120,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:hint="Enter Shoe Size"
-            android:text="@{@string/quote_format(shoeDetailViewModel.shoeSize)}"
+
             android:inputType="numberDecimal"
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="@+id/textCompany"
@@ -152,7 +152,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:hint="Enter Description"
-            android:text="@{@string/quote_format(shoeDetailViewModel.shoeDetail)}"
+            android:text="@={shoeDetailViewModel.shoeDetail}"
             android:inputType="textLongMessage"
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
@@ -190,4 +190,5 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     <!--android:onClick="@{() -> shoeDetailViewModel.onSaveDetail}"-->
+    <!--android:text="@={shoeDetailViewModel.shoeSize}"-->
 </layout>

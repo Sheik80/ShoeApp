@@ -104,5 +104,6 @@ class ShoeListFragment : Fragment() {
             requireView().findNavController()
         )
                 || super.onOptionsItemSelected(item)
+
     }
 }
