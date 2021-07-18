@@ -120,7 +120,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:hint="Enter Shoe Size"
-
+            android:text="@={shoeDetailViewModel.shoeSize}"
             android:inputType="numberDecimal"
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="@+id/textCompany"

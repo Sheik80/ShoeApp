@@ -32,6 +32,7 @@ class LoginFragment : Fragment() {
         }
         // Inflate the layout for this fragment
         setHasOptionsMenu(false)
+        requireActivity().actionBar?.setDisplayHomeAsUpEnabled(false)
         return binding.root
     }
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

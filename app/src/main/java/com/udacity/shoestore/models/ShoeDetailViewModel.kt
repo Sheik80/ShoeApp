@@ -30,9 +30,9 @@ class ShoeDetailViewModel() : ViewModel() {
     var shoeCompany: MutableLiveData<String> = MutableLiveData()
 //        get() = _shoeCompany
 
-    //private val _shoeSize = MutableLiveData<Double>()
-    var shoeSize: MutableLiveData<Double> = MutableLiveData()
-    //get() = _shoeSize
+    //private val _shoeSize = MutableLiveData<String>()
+    var shoeSize: MutableLiveData<String> = MutableLiveData()
+    //    get() = _shoeSize
 
     //private val _shoeDetail = MutableLiveData<String>()
     var shoeDetail: MutableLiveData<String> = MutableLiveData()
@@ -42,7 +42,7 @@ class ShoeDetailViewModel() : ViewModel() {
         shoeList.value = mutableListOf()
         shoeName.value = "UdacityShoe"
         shoeCompany.value = "Udacity"
-        shoeSize.value = 11.0
+        shoeSize.value = "11.0"
         shoeDetail.value = "UdacityDetail"//removeAllViews();
         _shoeAdd.value = true
         _eventShoeAddFinish.value = true  // надо вызывать по булеан если true то включать переход на другой фрагмент
